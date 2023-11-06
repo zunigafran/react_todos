@@ -1,6 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import NewTodoForm from "./NewTodoForm";
+import '@testing-library/jest-dom/extend-expect'; // Add this line
 
 it("renders without crashing", function() {
   render(<NewTodoForm />);

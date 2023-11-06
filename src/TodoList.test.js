@@ -1,10 +1,11 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import TodoList from "./TodoList";
+import '@testing-library/jest-dom/extend-expect'; // Add this line
 
 function addTodo(todoList, task = "write tests") {
   const taskInput = todoList.getByLabelText("Task:");
-  fireEvent.change(taskInput, { target: { value: task }});
+  fireEvent.change(taskInput, { target: { value: task } });
   const submitButton = todoList.getByText("Add a todo!");
   fireEvent.click(submitButton);
 }
@@ -35,7 +36,7 @@ it("can edit a todo", function() {
 
   fireEvent.click(list.getByText("Edit"));
   const editInput = list.getByDisplayValue("write tests");
-  fireEvent.change(editInput, { target: { value: "sleep" }});
+  fireEvent.change(editInput, { target: { value: "sleep" } });
   fireEvent.click(list.getByText("Update!"));
 
   // expect only edited todo to appear

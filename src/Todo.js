@@ -3,9 +3,14 @@ import React, { useState } from "react";
 function Todo({ task = "default todo", id = "1", remove, update }) {
   const [editTask, setEditTask] = useState(task);
   const [isEditing, setIsEditing] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   const toggleEdit = () => {
     setIsEditing(edit => !edit);
+  };
+
+  const toggleComplete = () => {
+    setIsCompleted(completed => !completed);
   };
 
   const handleChange = evt => {
@@ -20,16 +25,21 @@ function Todo({ task = "default todo", id = "1", remove, update }) {
     setIsEditing(false);
   };
 
-  // default todo view
+  // Default todo view
   let jsx = (
     <div>
-      <li>{task}</li>
+      <li style={{ textDecoration: isCompleted ? "line-through" : "none" }}>
+        {task}
+      </li>
       <button onClick={toggleEdit}>Edit</button>
-      <button onClick={handleDelete}>X</button>
+      <button onClick={toggleComplete} title={isCompleted ? "Undo" : "Mark as Complete"}>
+        {isCompleted ? "↺" : "✔"}
+      </button>
+      <button onClick={handleDelete}>✗</button>
     </div>
   );
 
-  // todo view when editing
+  // Todo view when editing
   if (isEditing) {
     jsx = (
       <div>
