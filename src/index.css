@@ -1,5 +1,29 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 10%;
+  padding: 5%;
   font-family: sans-serif;
+}
+
+#field{
+  background-color: darkgray;
+  color: white;
+  height: 5rem;
+  border-radius: 15px;
+}
+
+form {
+  padding-left:20%;
+  padding-top: 5%;
+  justify-content: center;
+}
+
+ul {
+  background-color: blueviolet;
+  border-radius: 12px;
+  padding: 10px 20px;
+}
+
+li {
+  list-style-type: none;
+  color: white;
 }

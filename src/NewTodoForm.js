@@ -15,7 +15,7 @@ function NewTodoForm({ createTodo }) {
   };
 
   return (
-    <div>
+    <div id="field">
       <form onSubmit={gatherInput}>
         <label htmlFor="task">Task:</label>
         <input
